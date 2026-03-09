@@ -28,7 +28,7 @@
     "electron-build-dir": "react-scripts build && electron-builder --mac --dir"
   },
   "build": {
-    "appId": "com.docker-react.app",
+    "appId": "com.electron.docker-react",
     "productName": "Docker React",
     "files": [
       "build/**/*",

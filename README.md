@@ -6,7 +6,7 @@ This project supports building a native macOS desktop application using [Electro
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v14 or later)
+- [Node.js](https://nodejs.org/) (v18 or later)
 - npm (comes with Node.js)
 - macOS 10.13 (High Sierra) or later
 
