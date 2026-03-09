@@ -2,6 +2,8 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -10,11 +12,36 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "electron": "^27.3.11",
+    "electron-builder": "^24.13.3",
+    "wait-on": "^6.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && ELECTRON_DEV=true electron .\"",
+    "electron-build": "react-scripts build && electron-builder --mac",
+    "electron-build-dir": "react-scripts build && electron-builder --mac --dir"
+  },
+  "build": {
+    "appId": "com.electron.docker-react",
+    "productName": "Docker React",
+    "files": [
+      "build/**/*",
+      "public/electron.js"
+    ],
+    "directories": {
+      "buildResources": "public",
+      "output": "dist"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.developer-tools"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
