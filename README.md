@@ -1,5 +1,36 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Building a Mac Desktop App
+
+This project supports packaging as a native macOS desktop application using [Electron](https://www.electronjs.org/) and [electron-builder](https://www.electron.build/).
+
+### Prerequisites
+
+- macOS (required to build and sign `.dmg` packages)
+- Node.js and npm installed
+
+### Run the app in Electron (development)
+
+```bash
+npm run electron-dev
+```
+
+This starts the React dev server and opens the app in an Electron window with hot reload. No production build is needed for this step.
+
+### Build a distributable Mac `.dmg`
+
+```bash
+npm run electron-pack
+```
+
+This command:
+1. Runs `npm run build` to produce an optimized React production build in the `build/` folder.
+2. Runs `electron-builder` to package the app as a `.dmg` for both **Intel (x64)** and **Apple Silicon (arm64)** Macs.
+
+The finished installer is placed in the `dist/` folder.
+
+---
+
 ## Available Scripts
 
 In the project directory, you can run:
